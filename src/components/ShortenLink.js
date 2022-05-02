@@ -1,10 +1,11 @@
 import React from 'react'
+import Button from '../components/Button'
 
 export default function ShortenLink() {
   return (
-    <div>
+    <div className='shortenLink'>
         <input placeholder='Shorten a link here...'></input>
-        <button>Shorten It!</button>
+        <Button text={"Shorten It!"} width={"100%"}/>
     </div>
   )
 }

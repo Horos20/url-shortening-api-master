@@ -1,8 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
 
+body {
+  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3, h4, ul, p {
+  text-align: center;
+}
+
+/*   BUTTON COMPONENT   */
+
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.button {
+  padding: 10px 0px 10px 0px;
+  background-color: hsl(180, 66%, 49%);
+  border-radius: 25px;
+}
+
+/*  HEADER AND NAVIGATION MENU  */
+
+header {
+  display: flex;
+  margin: 28px 16px 28px 16px;
+  align-items: center;
+}
+
+header img {
+  vertical-align: middle;
+}
+
+header button {
+  margin-left: auto;
+}
 
 #navbar {
-    display: none;
-  }
+  position: absolute;
+  width: calc(100% - 100px);
+  display: none;
+  background-color: hsl(257, 27%, 26%);
+  padding: 40px 30px 40px 30px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 20px 0 20px;
+  border-radius: 10px;
+}
+
+#navbar a, button {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  margin: 10px 0 10px 0;
+}
+
+hr {
+  border: 1px solid hsl(0, 0%, 75%);
+  width: 100%;
+}
+
+
+
+
+
+/*   MAIN SECTION   */
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.main img {
+  margin: 0 0 0 30px;
+}
+
+.main h1 {
+  font-size: 40px;
+  line-height: 3rem;
+}
+
+.main p {
+  color: hsl(257, 7%, 63%);
+}
+
+.shortenLink {
+  margin: 100px 0 100px 0;
+  background: url("./images/bg-shorten-mobile.svg") no-repeat, hsl(257, 27%, 26%);
+  background-size: cover;
+  padding: 15px;
+  width: calc(100% - 30px);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.shortenLink input {
+  border: 1px solid black;
+  padding: 15px 0 15px 0;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.shortenLink button {
+  border-radius: 5px;
+}
+
+
+
+
+/*   STATISTICS SECTION   */
+
+.statistics {
+  position: relative;
+  background-color: hsl(0, 0%, 92%);
+}
+
+.statistics, .statistics div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statistics p {
+  color: hsl(257, 7%, 63%);
+  padding: 16px;
+}
+
+.statistics .brand, .statistics .records, .statistics .customization {
+  background-color: white;
+  margin: 60px 16px 60px 16px;
+  border-radius: 8px;
+  z-index: 2;
+}
+
+h3 {
+  margin: 0;
+}
+
+.vertical-line {
+  position: absolute;
+  border: 6px solid hsl(180, 66%, 49%);
+  height: 700px;
+  top: 500px;
+}
+
+.img-wrap {
+  position: relative;
+  top: -40px;
+  background-color: hsl(257, 27%, 26%);
+  border-radius: 50%;
+  padding: 20px;
+}
+
+.statistics div h3 {
+  font-size: 1.17em;
+}
+
+
+/*   GETSTARTED SECTION    */
+
+.getStarted {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px 60px 20px;
+  background: url("./images/bg-boost-mobile.svg") no-repeat, hsl(257, 27%, 26%);
+  background-size: cover;
+}
+
+.getStarted h2 {
+  color: white;
+}
+
+/*   FOOTER   */
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0 50px 0;
+  background-color: hsl(260, 8%, 14%);
+  color: white;
+}
+
+.white-logo {
+  fill: white;
+}
+
+footer div {
+  margin: 20px 0 0 0;
+}
+
+footer div ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: hsl(0, 0%, 75%);
+}
+
+footer div ul li {
+  line-height: 2rem;
+}
+
+.icons ul li {
+  float: left;
+  margin: 12px;
+}
 
 
 
@@ -35,21 +253,4 @@ The designs were created to the following widths:
 - Very Dark Blue: hsl(255, 11%, 22%)
 - Very Dark Violet: hsl(260, 8%, 14%)
 
-## Typography
-
-### Body Copy
-
-- Font size: 18px
-
-### Fonts
-
-- Family: [Poppins](https://fonts.google.com/specimen/Poppins)
-- Weights: 500, 700
-
-## Icons
-
-For the social icons, you can either use the SVGs provided or a font icon library. Some suggestions for font icon libraries can be found below:
-
-- [Font Awesome](https://fontawesome.com)
-- [IcoMoon](https://icomoon.io)
-- [Ionicons](https://ionicons.com) */
+*/
