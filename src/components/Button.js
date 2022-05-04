@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function Button( {text, width} ) {
+export default function Button( {text, width, onClick} ) {
   return (
-    <button className='button' style={width={width}}>{text}</button>
+    <button onClick={onClick} className='button' style={width={width}}>{text}</button>
   )
 }
