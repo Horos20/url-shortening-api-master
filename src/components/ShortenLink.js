@@ -11,7 +11,7 @@ export default function ShortenLink() {
     if (Boolean(link)) {
       if (data.ok === true) {
         let shortenedLink = data.result.full_short_link
-        setLink(links => [...links, shortenedLink])
+        setLink(links => [...links, [link, shortenedLink]])
       } else {
         return "Enter a valid link"
       }
@@ -20,9 +20,20 @@ export default function ShortenLink() {
     }
   }
   return (
+    <>
     <div className='shortenLink'>
         <input id='link' placeholder='Shorten a link here...'></input>
         <Button onClick={getShortenedLink} text={"Shorten It!"} width={"100%"}/>
     </div>
+    {links.map((link, key) => {
+      return (
+        <div key={key} className='links'>
+          <p className='fullUrl'>{link[0]}</p>
+          <p className='shortenedUrl'>{link[1]}</p>
+          <Button text={"Copy"} width={"110px"}/>
+        </div>
+      )
+      })}
+    </>
   )
 }
