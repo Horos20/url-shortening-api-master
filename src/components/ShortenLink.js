@@ -19,6 +19,19 @@ export default function ShortenLink() {
       return "Input field is empty"
     }
   }
+  function copyToClipboard(key) {
+    let copyText = document.getElementById(key);
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(copyText.value);
+    let copiedButton = document.getElementsByClassName('copiedButton');
+    if (copiedButton.length > 0) {
+      copiedButton[0].innerHTML = "Copy";
+      copiedButton[0].classList.remove('copiedButton');
+    }
+    copyText.parentElement.getElementsByTagName('button')[0].innerHTML = "Copied!";
+    copyText.parentElement.getElementsByTagName('button')[0].classList.add('copiedButton');
+  }
   return (
     <>
     <div className='shortenLink'>
@@ -29,8 +42,8 @@ export default function ShortenLink() {
       return (
         <div key={key} className='links'>
           <p className='fullUrl'>{link[0]}</p>
-          <p className='shortenedUrl'>{link[1]}</p>
-          <Button text={"Copy"} width={"110px"}/>
+          <input id={key} className='shortenedUrl' defaultValue={link[1]} readOnly="readonly"></input>
+          <Button text={"Copy"} width={"110px"} onClick={() => copyToClipboard(key)}/>
         </div>
       )
       })}

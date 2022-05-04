@@ -161,15 +161,28 @@ hr {
   margin-left: 16px;
 }
 
-.links p:nth-child(2) {
+.links input {
   margin-left: auto;
   color: hsl(180, 66%, 49%);
+  width: fit-content;
+  border: none;
+  background-color: hsl(0, 0%, 94%);
+  font-size: 18px;
+}
+
+.links input:focus {
+  outline: none;
 }
 
 .links button {
   border-radius: 6px;
   margin: 16px;
 }
+
+.copiedButton, .copiedButton:hover {
+  background-color: hsl(257, 27%, 26%);
+}
+
 
 
 /*   STATISTICS SECTION   */
