@@ -1,9 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-size: 18px;
   font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, ul, p {
@@ -28,33 +35,43 @@ button {
   border-radius: 25px;
 }
 
+.button:hover {
+  background-color: hsla(180, 77%, 71%, 0.833);
+}
+
 /*  HEADER AND NAVIGATION MENU  */
 
 header {
-  display: flex;
   margin: 28px 16px 28px 16px;
   align-items: center;
 }
 
-header img {
+#navbar a:hover {
+  color: black;
+}
+
+header img, .menu-icon {
   vertical-align: middle;
 }
 
-header button {
-  margin-left: auto;
+.menu-icon {
+  position: absolute;
+  top: 10px;
+  right: 20px;
 }
 
 #navbar {
   position: absolute;
-  width: calc(100% - 100px);
+  width: calc(100% - 30px);
   display: none;
   background-color: hsl(257, 27%, 26%);
   padding: 40px 30px 40px 30px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 20px 0 20px;
+  margin: 30px 0 0 0;
   border-radius: 10px;
+  z-index: 2;
 }
 
 #navbar a, button {
@@ -75,20 +92,26 @@ hr {
 
 /*   MAIN SECTION   */
 
-.main {
+.main, .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .main img {
-  margin: 0 0 0 30px;
+  overflow-x: hidden;
+  max-width: 100%;
+  height: auto;
+  position: relative;
+  left: 60px;
 }
 
 .main h1 {
   font-size: 40px;
   line-height: 3rem;
+  margin: 0;
 }
 
 .main p {
@@ -112,6 +135,11 @@ hr {
   padding: 15px 0 15px 0;
   width: 100%;
   border-radius: 10px;
+  text-indent: 20px;
+}
+
+.shortenLink input::placeholder {
+  font-family: 'Poppins', sans-serif;
 }
 
 .shortenLink button {
@@ -126,6 +154,8 @@ hr {
 .statistics {
   position: relative;
   background-color: hsl(0, 0%, 92%);
+  padding-bottom: 50px;
+  padding-top: 50px;
 }
 
 .statistics, .statistics div {
@@ -150,11 +180,11 @@ h3 {
   margin: 0;
 }
 
-.vertical-line {
+.line {
   position: absolute;
   border: 6px solid hsl(180, 66%, 49%);
-  height: 700px;
-  top: 500px;
+  height: 1300px;
+  top: 400px;
 }
 
 .img-wrap {
@@ -199,7 +229,7 @@ footer {
 }
 
 .white-logo {
-  fill: white;
+  filter: brightness(0) invert(1);
 }
 
 footer div {
@@ -210,11 +240,23 @@ footer div ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  color: hsl(0, 0%, 75%);
 }
 
 footer div ul li {
   line-height: 2rem;
+}
+
+footer div ul li a {
+  text-decoration: none;
+  color: hsl(0, 0%, 75%);
+}
+
+.features ul li a:hover, .resources ul li a:hover, .company ul li a:hover {
+  color: hsl(180, 66%, 49%);
+}
+
+.icons ul li a img:hover {
+  filter: brightness(0) saturate(100%) invert(78%) sepia(60%) saturate(594%) hue-rotate(121deg) brightness(87%) contrast(84%);
 }
 
 .icons ul li {
@@ -224,7 +266,165 @@ footer div ul li {
 
 
 
+/*   MEDIA QUERIES   */
 
+@media (min-width: 251px) {
+  .line {
+    height: 960px;
+    top: 300px;
+  }
+}
+
+@media (min-width: 389px) {
+  .line {
+    height: 760px;
+    top: 200px;
+  }
+}
+
+@media (min-width: 850px) {
+  header {
+    display: flex;
+    margin: 28px 100px 28px 100px;
+  }
+  .logo {
+    margin-right: 40px;
+  }
+  header .menu-icon {
+    display: none;
+  }
+  #navbar {
+    position: relative;
+    display: flex !important;
+    flex-direction: row;
+    background-color: white;
+    padding: 0;
+    font-size: 14px;
+    justify-content: flex-start;
+    margin-top: 0;
+  }
+  #navbar a {
+    color: hsl(257, 7%, 63%);
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+  #navbar hr {
+    display: none;
+  }
+  #navbar button {
+    width: 100px !important;
+    margin: 0;
+  }
+  #navbar .login {
+    margin-left: auto;
+  }
+  .container {
+    order: -1;
+    flex-basis: 50%;
+    align-items: flex-start;
+  }
+  .container h1, .container p {
+    text-align: start;
+  }
+  .container h1 {
+    font-size: 62px;
+    line-height: 4.5rem;
+  }
+  .main {
+    flex-direction: row;
+    margin: 100px;
+  }
+  .main img {
+    flex-basis: 50%;
+  }
+  .shortenLink {
+    background: url("./images/bg-shorten-desktop.svg") no-repeat, hsl(257, 27%, 26%);
+    background-size: cover;
+    order: 1;
+    padding: 30px;
+    flex-direction: row;
+  }
+  .shortenLink .button {
+    width: 20% !important;
+    margin-left: 20px;
+  }
+  .getStarted {
+    background: url("./images/bg-boost-desktop.svg") no-repeat, hsl(257, 27%, 26%);
+    background-size: cover;
+  }
+
+
+  footer {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  footer div {
+    margin-top: 0;
+    margin-right: 30px;
+  }
+  .white-logo {
+    margin-right: auto;
+    margin-left: 30px;
+  }
+  footer h4 {
+    margin-bottom: 14px;
+  }
+  footer h4, footer div ul {
+    text-align: start;
+  }
+  .icons ul li {
+    margin: 0 10px 0 10px;
+  }
+}
+
+@media (min-width: 1200px) {
+  footer div {
+    margin-top: 0;
+    margin-right: 100px;
+  }
+  .white-logo {
+    margin-right: auto;
+    margin-left: 100px;
+  }
+  .statistics {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .statistics h2, .statistics p {
+    width: 100%;
+  }
+  .brand, .records, .customization {
+    width: 350px;
+  }
+  .brand {
+    position: relative;
+    bottom: 60px;
+  }
+  .customization {
+    position: relative;
+    top: 60px;
+  }
+  .line {
+    position: absolute;
+    border: 6px solid hsl(180, 66%, 49%);
+    width: 700px;
+    height: 0;
+    top: 370px;
+  }
+  .track {
+    margin-bottom: 50px;
+  }
+  .brand p, .records p, .customization p {
+    text-align: start;
+  }
+  .statistics div {
+    align-items: start;
+  }
+  .brand div, .brand h3, .records div, .records h3, .customization div, .customization h3  {
+    margin-left: 16px;
+  }
+}
 
 /* # Front-end Style Guide
 
