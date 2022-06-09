@@ -10,7 +10,6 @@ This is a solution to the [Shortly URL shortening API Challenge challenge on Fro
   - [Links](#links)
   - [Built with](#built-with)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 ## Overview
 
