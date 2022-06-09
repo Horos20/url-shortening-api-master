@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 
 export default function ShortenLink() {
   const [links, setLink] = useState([]);
+  const [inputLink, setInputLink] = useState('');
 
   /*   Get links from localStorage    */
   useEffect(() => {
@@ -17,7 +18,7 @@ export default function ShortenLink() {
   }, []);
 
   async function getShortenedLink() {
-    let link = document.getElementById("link").value
+    let link = inputLink;
     let response = await fetch("https://api.shrtco.de/v2/shorten?url=" + link)
     let data = await response.json();
     if (Boolean(link)) {
@@ -54,7 +55,7 @@ export default function ShortenLink() {
   return (
     <>
     <div className='shortenLink'>
-        <input id='link' placeholder='Shorten a link here...'></input>
+        <input id='link' placeholder='Shorten a link here...' onChange={(event) => {setInputLink(event.target.value)}}></input>
         <Button onClick={getShortenedLink} text={"Shorten It!"} width={"100%"}/>
     </div>
     {links.map((link, key) => {
