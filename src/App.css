@@ -151,6 +151,20 @@ main {
   border-radius: 5px;
 }
 
+.message {
+  order: 9;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.successful {
+  color: green;
+}
+
+.error {
+  color: red;
+}
+
 .links {
   order: 10;
   width: calc(100% - 30px);

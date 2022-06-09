@@ -5,6 +5,8 @@ import { useState, useEffect } from 'react'
 export default function ShortenLink() {
   const [links, setLink] = useState([]);
   const [inputLink, setInputLink] = useState('');
+  const [fetchMessage, setFetchMessage] = useState('');
+  const [active, setActive] = useState('');
 
   /*   Get links from localStorage    */
   useEffect(() => {
@@ -32,11 +34,18 @@ export default function ShortenLink() {
         const updatedLinks = allLinks.concat({[link]: shortenedLink})
         localStorage.setItem('savedLinks', JSON.stringify(updatedLinks))
 
+        /*   New link created   */
+        setActive('successful')
+        setFetchMessage("New link created!")
       } else {
-        return "Enter a valid link"
+        /*   Not a valid link   */
+        setActive('error')
+        setFetchMessage("Enter a valid link!")
       }
     } else {
-      return "Input field is empty"
+      /*   Input field empty    */
+      setActive('error')
+      setFetchMessage("Input field is empty!")
     }
   }
   function copyToClipboard(key) {
@@ -58,6 +67,7 @@ export default function ShortenLink() {
         <input id='link' placeholder='Shorten a link here...' onChange={(event) => {setInputLink(event.target.value)}}></input>
         <Button onClick={getShortenedLink} text={"Shorten It!"} width={"100%"}/>
     </div>
+    <div className={`message ${(active === "successful") ? "successful" : "error"}`}>{fetchMessage}</div>
     {links.map((link, key) => {
       return (
         <div key={key} className='links'>
