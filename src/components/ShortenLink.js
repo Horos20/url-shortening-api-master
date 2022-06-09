@@ -1,9 +1,21 @@
 import React from 'react'
 import Button from '../components/Button'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function ShortenLink() {
   const [links, setLink] = useState([]);
+
+  /*   Get links from localStorage    */
+  useEffect(() => {
+    let allLinks = JSON.parse(localStorage.getItem('savedLinks'))
+    if(allLinks === null) allLinks = [];
+    for (let i = 0; i < allLinks.length; i++) {
+      const link = Object.keys(allLinks[i]).toString();
+      const shortenedLink = Object.values(allLinks[i]).toString();
+      setLink(links => [...links, [link, shortenedLink]])
+    }
+  }, []);
+
   async function getShortenedLink() {
     let link = document.getElementById("link").value
     let response = await fetch("https://api.shrtco.de/v2/shorten?url=" + link)
@@ -12,6 +24,13 @@ export default function ShortenLink() {
       if (data.ok === true) {
         let shortenedLink = data.result.full_short_link
         setLink(links => [...links, [link, shortenedLink]])
+
+        /*   Save new link to localstorage   */
+        let allLinks = JSON.parse(localStorage.getItem('savedLinks'))
+        if(allLinks === null) allLinks = [];
+        const updatedLinks = allLinks.concat({[link]: shortenedLink})
+        localStorage.setItem('savedLinks', JSON.stringify(updatedLinks))
+
       } else {
         return "Enter a valid link"
       }

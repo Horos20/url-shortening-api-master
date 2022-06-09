@@ -100,12 +100,17 @@ hr {
   justify-content: center;
 }
 
-.main img {
-  overflow-x: hidden;
+.main {
+  padding: 16px;
+}
+
+main {
+  overflow: hidden;
+}
+
+.main .img-wrapper {
   max-width: 100%;
   height: auto;
-  position: relative;
-  left: 60px;
 }
 
 .main h1 {
@@ -148,8 +153,9 @@ hr {
 
 .links {
   order: 10;
-  flex-basis: 100%;
+  width: calc(100% - 30px);
   display: flex;
+  flex-direction: column;
   background-color: hsl(0, 0%, 94%);
   margin-bottom: 20px;
   border-radius: 6px;
@@ -158,11 +164,11 @@ hr {
 
 .links p {
   color: black;
-  margin-left: 16px;
+  margin-bottom: 20px;
+  margin-top: 6px;
 }
 
 .links input {
-  margin-left: auto;
   color: hsl(180, 66%, 49%);
   width: fit-content;
   border: none;
@@ -314,7 +320,23 @@ footer div ul li a {
 @media (min-width: 389px) {
   .line {
     height: 760px;
-    top: 200px;
+    top: 240px;
+  }
+}
+
+@media (min-width: 500px) {
+  .links {
+    flex-direction: row;
+  }
+  .links p {
+    margin: 0 0 0 16px;
+  }
+  .links input {
+    margin-left: auto;
+  }
+  .main .img-wrapper img {
+    position: relative;
+    left: 60px;
   }
 }
 
@@ -369,9 +391,11 @@ footer div ul li a {
   .main {
     flex-direction: row;
     margin: 100px;
+    padding: 0;
   }
-  .main img {
+  .main .img-wrapper {
     flex-basis: 50%;
+    min-width: 50%;
   }
   .shortenLink {
     background: url("./images/bg-shorten-desktop.svg") no-repeat, hsl(257, 27%, 26%);

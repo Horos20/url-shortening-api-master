@@ -29,7 +29,7 @@ function App() {
         
         <main>
           <section className='main'>
-            <img src={require('./images/illustration-working.svg').default} alt='illustration'></img>
+            <div className='img-wrapper'><img src={require('./images/illustration-working.svg').default} alt='illustration'></img></div>
             <div className="container">
               <h1>More than just shorter links</h1>
               <p>Build your brand's recognition and get detailed insights on how your links are performing.</p>
